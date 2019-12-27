@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+    web:
+      image: 127.0.0.1:5000/web-app-prototype-flask
+      build: ./app
+      ports:
+        - "8080:8080"
+      depends_on:
+        - postgis
+    postgis:
+      image: 127.0.0.1:5000/postgis
+      build: ./database
+      ports:
+        - "5432:5432"
